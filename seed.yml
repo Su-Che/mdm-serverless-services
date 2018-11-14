@@ -4,6 +4,7 @@ before_compile:
 
 before_build:
   - apt-get update
+  - pwd
   - apt-get install xmlsec1 -y -q
   - apt-get install default-jdk -y -q
   - apt-get install maven -y -q
@@ -27,4 +28,4 @@ before_deploy:
 
 after_deploy:
   - echo "Run Functional tests"
-  - mvn -X clean test -DtestFile=testng.xml
+  - mvn -X -f functionaltests/WebdriverTest/pom.xml clean test -DtestFile=testng.xml
