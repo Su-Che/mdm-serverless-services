@@ -24,7 +24,7 @@ class TestApp(unittest.TestCase):
     def test_should_display_nice_message_if_serial_present(self):
         client = app.app.test_client()
         response = self.submit_serial(client, 'C0257875G8WL')
-        self.assertTrue(b'/register.png' in response.data)
+        self.assertTrue(b'register.png' in response.data)
 
     def test_should_redirect_to_SAML_login_page_if_user_is_not_authenticated(self):
         client = app.app.test_client()
