@@ -1,135 +1,66 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,700);
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
-
-body {
-  font-family: "Open Sans", sans-serif;
-  background: #fff;
-  color: #333;
-  line-height: 1.3em;
-  font-size: 16px;
-  font-weight: 200;
-}
-body ::selection {
-  background: black;
-  color: #fff;
-}
-
-.main-body{
-  background-color: #fff;
-
-}
-
-header #header .logo-container {
-  margin-right: 10px;
-  display: inline-block;
-  align-content: center;
-}
-
-.logo-header-container {
-  float: none;
-}
-
-.logo{
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 16%;
-}
-
-#cover-image{
-	width: 32%;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#cover-image-2{
-	height: 256px;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#text{
-	display: inline-block;
-	padding-left: 30%;
-	padding-right: 30%;
-}
-
-
-#text .h1{
-	font-size: 36px;
-	font-weight: 800;
-	line-height: 56px;
-	color: #702269;
-  padding: 12px 24px 12px 24px;
-}
-
-#text .h2{
-	padding-top: 1.1em;
-}
-
-#text .h3{
-	font-style: italic;
-	font-weight: 300;
-  font-size: 20px;
-  padding: 8px 20px 8px 20px;
-}
-
-.button {
-	margin: 5% 32% 5% 32%;
-	padding: 12px 64px 12px 64px;
-
-	cursor: pointer;
-	user-select: none;
-	text-align: center;
-	white-space: nowrap;
-	text-decoration: none !important;
-
-	color: #fff;
-	background-color: #0275B5;
-	border: 0 none;
-	border-radius: 2px;
-
-	font-size: 16px;
-	font-family: inherit;
-	font-weight: 400;
-	line-height: 1.3;
-
-	justify-content: center;
-	align-items: center;
-	flex: 0 0 160px;
-
-	box-shadow: 2px 5px 10px var(--color-smoke);
-}
-
-.info-button {
-	margin: 5% 24% 5% 24%;
-	padding: 12px 64px 12px 64px;
-
-	cursor: pointer;
-	user-select: none;
-	text-align: center;
-	white-space: nowrap;
-	text-decoration: none !important;
-
-	color: #fff;
-	background-color: #0275B5;
-	border: 0 none;
-	border-radius: 2px;
-
-	font-size: 16px;
-	font-family: inherit;
-	font-weight: 400;
-	line-height: 1.3;
-
-	justify-content: center;
-	align-items: center;
-	flex: 0 0 160px;
-
-	box-shadow: 2px 5px 10px var(--color-smoke);
-}
-
-.link{
-		margin: 5% 32% 5% 32%;
-}
+  :root {
+    --app-spacer: 40px;
+    --app-width: 600px;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  .app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: var(--app-spacer);
+    font-size: 18px;
+    font-family: "Open Sans", sans-serif;
+    max-width: var(--app-width);
+    width: 100%;
+    margin: 0 auto;
+  }
+  .app p{
+    margin-bottom: var(--app-spacer);
+  }
+  .logo,
+  .register-icon {
+    margin-bottom: var(--app-spacer);
+  }
+  .register-your-laptop {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 56px;
+    color: #702269;
+    margin-bottom: var(--app-spacer);
+    text-align: center;
+  }
+  .description {
+    font-size: 16px;
+    margin-bottom: var(--app-spacer);
+    text-align: center;
+  }
+  .btn {
+    background-color: #007bff;
+    border-radius: 4px;
+    border: none;
+    color: #fff;
+    padding: 12px 64px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: var(--app-spacer);
+  }
+  .sub-para {
+    display: flex;
+    align-items: center;
+  }
+  .sub-para img{
+    height: 24px;
+    margin-right: 10px;
+  }

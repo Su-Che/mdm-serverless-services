@@ -142,7 +142,7 @@ def idp_initiated(idp_name):
 def main():
     serial = request.args.get("serial")
     if not serial:
-        return render_template('oops.html', details="Missing Serial Number")
+        return render_template('oops.html', details="Missing Serial Number",env=os.environ.get('ENV_TYPE'))
 
     return render_template('index.html', serial=serial, env=os.environ.get('ENV_TYPE'))
 
@@ -151,7 +151,7 @@ def main():
 def register():
     serial = request.args.get("serial")
     if not serial:
-        return render_template('oops.html', details="Missing Serial Number")
+        return render_template('oops.html', details="Missing Serial Number",env=os.environ.get('ENV_TYPE'))
 
     if (not current_user.is_authenticated):
         idp_name = next(iter(metadata_url_for.keys()))
