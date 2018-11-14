@@ -15,7 +15,7 @@ before_build:
   - apt-get install apt-transport-https
   - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
   - sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-  - apt-get update 
+  - apt-get update
   - apt-get install google-chrome-stable -y -q
 
 
@@ -26,4 +26,5 @@ before_deploy:
   - echo "sls print"
 
 after_deploy:
-  - echo "Run integration tests"
+  - echo "Run Functional tests"
+  - mvn -X clean test -DtestFile=testng.xml
