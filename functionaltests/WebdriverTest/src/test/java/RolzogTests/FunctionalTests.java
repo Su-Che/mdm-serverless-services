@@ -23,7 +23,7 @@ public class FunctionalTests {
 
         driver = new ChromeDriver();
         String currentUsersWorkingDir = System.getProperty("user.dir");
-
+      System.out.println("################ "+currentUsersWorkingDir);
     	System.setProperty("webdriver.chrome.driver",currentUsersWorkingDir+"/chromedriver");
 
     }
@@ -35,7 +35,7 @@ public class FunctionalTests {
 
     @Test(priority=1)
 
-    public void C() {
+    public void ValidateSMDMRegistration() {
 
 
         String baseUrl = "https://api.mdmdev.thoughtworks.net/rolzog/?serial=C02L70VFF5YW";

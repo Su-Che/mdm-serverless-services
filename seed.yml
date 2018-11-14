@@ -4,7 +4,9 @@ before_compile:
 
 before_build:
   - apt-get update
+  - echo "-----------------"
   - pwd
+  - ls
   - apt-get install xmlsec1 -y -q
   - apt-get install default-jdk -y -q
   - apt-get install maven -y -q
