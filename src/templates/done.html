@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-<base href="https://rolzog-public-static-dev.s3.amazonaws.com/" />
-<img src="logo.png" alt="logo" class="logo" width="172">
-<img src="high-fi.png" alt="register" width="344" height="191" class="register-icon">
+
+<img src="https://rolzog-public-static-{{ env }}.s3.amazonaws.com/logo.png" alt="logo" class="logo" width="172">
+<img src="https://rolzog-public-static-{{ env }}.s3.amazonaws.com/high-fi.png" alt="register" width="344" height="191" class="register-icon">
 <div class="register-your-laptop">CONGRATULATIONS!</div>
 <p class="description">
 	Your laptop has been sucessfully registered.
