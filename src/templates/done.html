@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<div class="app">
 <img src="https://rolzog-public-static-{{ env }}.s3.amazonaws.com/logo.png" alt="logo" class="logo" width="172">
 <img src="https://rolzog-public-static-{{ env }}.s3.amazonaws.com/high-fi.png" alt="register" width="344" height="191" class="register-icon">
 <div class="register-your-laptop">CONGRATULATIONS!</div>
@@ -8,7 +8,9 @@
 	Your laptop has been sucessfully registered.
 </p>
 <p class="sub-para">
+	<img src="https://rolzog-public-static-{{ env }}.s3.amazonaws.com/Attention.png" alt="" width="24" height="24">
 Please reboot to complete the enrolment process.
 </p>
+</div>
 
 {% endblock %}
