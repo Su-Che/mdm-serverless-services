@@ -202,7 +202,7 @@ def register():
         template = 'done.html'
     else:
         template = 'oops.html'
-    return render_template(template, env=os.environ.get('ENV_TYPE'))
+    return render_template(template, env=os.environ.get('ENV_TYPE'), details="Something went wrong!")
 
 
 @app.route("/saml/login/<idp_name>/<relaystate>")
