@@ -1,19 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<header id="header" class="clearfix">
-  <div class="logo-container">
-    <img src="https://rolzog-public-static-{{ env }}.s3.amazonaws.com/logo.png" alt="logo" class="logo">
-  </div>
-</header>
-<img src="https://rolzog-public-static-{{ env }}.s3.amazonaws.com/oops.png" alt="cover" class="img" id="cover-image">
-
-<div class="content" id="text">
-  <div class="h3 d-flex justify-content-center text-left">
-  Something went wrong! Please contact
-  <a href="mailto:mdm-support@thoughtworks.com" target="_top">MDM support</a>
-  </div>
-
+<div class="app">
+<img src="https://rolzog-public-static-{{ env }}.s3.amazonaws.com/logo.png" alt="logo" class="logo" width="172">
+<img src="https://rolzog-public-static-{{ env }}.s3.amazonaws.com/oops.png" alt="register" width="344" height="191" class="register-icon">
+<div class="register-your-laptop">Something went wrong! Please contact
+<a href="mailto:mdm-support@thoughtworks.com" target="_top">MDM support</a>
+</div>
 </div>
 
 {{ details }}
