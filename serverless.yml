@@ -1,0 +1,94 @@
+service: mdm-serverless-services
+plugins:
+  - serverless-python-requirements
+  - serverless-wsgi
+  - serverless-s3-sync
+  - serverless-domain-manager
+custom:
+  wsgi:
+    app: src.app.app
+    packRequirements: false
+  pythonRequirements:
+    dockerizePip: false
+  s3Sync:
+    - bucketName: rolzog-public-static-${self:provider.stage}
+      localDir: static/images
+      acl: public-read
+  myEnvironment:
+      DOMAIN_NAME:
+        dev: "mdmdev.thoughtworks.net"
+        prod: "mdm.thoughtworks.net"
+  customDomain:
+    domainName: api.${self:custom.myEnvironment.DOMAIN_NAME.${self:provider.stage}}
+    stage: ${self:provider.stage}
+    basePath: "rolzog"
+    certificateName: api.${self:custom.myEnvironment.DOMAIN_NAME.${self:provider.stage}}
+    createRoute53Record: true
+    endpointType: 'regional'
+
+package:
+  exclude:
+    - node_modules/**
+    - venv/**
+  include:
+    - lib/**
+    - bin/**
+provider:
+  name: aws
+  runtime: python3.6
+  stage: ${env:ENV_TYPE}
+  environment:
+    API_GATEWAY_BASE_PATH: ${self:custom.customDomain.basePath}
+  region: eu-west-1
+  iamRoleStatements:
+    -  Effect: "Allow"
+       Action:
+         - "apigateway:GET"
+       Resource:
+          - "arn:aws:apigateway:eu-west-1::/apikeys"
+  memorySize: 1024 # optional, in MB, default is 1024
+  timeout: 10
+  apiKeys:
+    - move-device-api-key-${self:provider.stage}
+    - post-to-servicenow-api-key-${self:provider.stage}
+
+functions:
+  app:
+    handler: wsgi.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
+    environment:
+      PATH: ./bin:/usr/local/bin:/usr/bin:/bin
+
+  moveDevice:
+    handler: lambdas/move_device.move_device_lambda
+    events:
+      - http:
+          path: /moveDevice
+          method: post
+          private: true
+
+  postToServiceNow_Assignment:
+    handler: lambdas/post_to_servicenow_assignment.post_to_snow_lambda
+    events:
+      - http:
+          path: /postToServiceNowAssignment
+          method: post
+          private: true
+
+  postToServiceNow_CreateAsset:
+    handler: lambdas/post_to_servicenow_createasset.post_to_snow_lambda
+    events:
+      - http:
+          path: /postToServiceNowCreateAsset
+          method: post
+          private: true
+
+resources:
+  Resources:
+    S3BucketStaticFiles:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: rolzog-public-static-${self:provider.stage}
+        AccessControl: PublicRead

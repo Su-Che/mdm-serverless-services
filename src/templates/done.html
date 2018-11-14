@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+	<header id="header" class="clearfix">
+		<div class="logo-container">
+			<img src="https://rolzog-public-static-{{ env }}.s3.amazonaws.com/logo.png" alt="logo" class="logo">
+		</div>
+	</header>
+	<img src="https://rolzog-public-static-{{ env }}.s3.amazonaws.com/high-fi.png" class="img" id="cover-image-2">
+	<div class="content" id="text">
+		<div class="h1 d-flex justify-content-center text-center">CONGRATULATIONS!</div>
+		<div class="h3 d-flex justify-content-center text-left">Your laptop has been sucessfully registered.</div>
+		<div class="h3 d-flex justify-content-center text-left">Please reboot to complete the enrolment process.</div>
+	</div>
+
+{% endblock %}

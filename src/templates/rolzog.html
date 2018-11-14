@@ -1,0 +1,31 @@
+	<header id="header" class="clearfix">
+		<div class="logo-container">
+			<img src="https://rolzog-public-static-{{ env }}.s3.amazonaws.com/logo.png" alt="logo" class="logo">
+		</div>
+	</header>
+	<img src="https://rolzog-public-static-{{ env }}.s3.amazonaws.com/register.png" alt="cover" class="img" id="cover-image">
+
+	<div class="content" id="text">
+		<div class="h1 d-flex justify-content-center text-center">
+		REGISTER YOUR LAPTOP
+		</div>
+
+		<div class="h2 d-flex justify-content-center text-left">
+			Registering will assign your device to you in our asset management system (ServiceNow) and enable FileVault encryption on your device.
+		</div>
+		<div class="h3 d-flex justify-content-center text-left">
+		This is an essential step. Please do not close this window.
+		</div>
+		<div class="d-flex p-4 justify-content-center">
+			<a href="register?serial={{ serial }}&live=1">
+				<button type="button" class="btn btn-primary btn-lg">
+					Register
+				</button>
+			</a>
+		</div>
+
+		<div class="h3 d-flex justify-content-center text-left">
+			We will capture your laptop’s serial number, Model Id , Wifi Mac Address and your Okta user id during the process.
+		</div>
+
+	</div>
