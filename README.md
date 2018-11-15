@@ -6,11 +6,6 @@ In the order that they are triggered during MDM enrolment:
 1. **post-to-snow** – A simple function that posts a JSON object to a ServiceNow API containing all of the hardware details SimpleMDM holds about the laptop. This is called by Rolzog (back-end call) during enrolment. In future this will hook into SimpleMDM to get regular updates on hardware and software into ServiceNow.
 1. **move-group** – a simple function that calls a SimpleMDM API to move a device into the group that delivers the FileVault (disk encryption) configuration profile. This is called by Rolzog (back-end call) after the other enrolment configuration (password policy, firewall, Rolzog is complete) – it has to be done after the other configuration because the filevault profile requires a valid user account to exist on the laptop, which isn’t the case during the initial enrolment of a brand new laptop.
 
-
-## Build and deployment
-
-The build and deployment is on https://seed.run. You'll need access to the thoughtworks-identity organization.
-
 ## Running tests locally
 
 `docker build -t mdm .`
@@ -18,7 +13,6 @@ The build and deployment is on https://seed.run. You'll need access to the thoug
 `docker run -i --mount type=bind,source="$(pwd)"/tests,target=/app/tests --mount type=bind,source="$(pwd)"/lambdas,target=/app/lambdas -t mdm`
 
 `python -m unittest discover tests`
-
 
 ### LIBXMLSEC1
 
