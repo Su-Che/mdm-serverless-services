@@ -5,5 +5,5 @@
     <classes>
       <class name="RolzogTests.FunctionalTests"/>
     </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+  </test> 
+</suite>
