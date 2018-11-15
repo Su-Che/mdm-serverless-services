@@ -31,6 +31,10 @@
   .register-icon {
     margin-bottom: var(--app-spacer);
   }
+  .hifi-icon {
+    margin-bottom:30px;
+  }
+
   .register-your-laptop {
     font-size: 36px;
     font-weight: 800;
