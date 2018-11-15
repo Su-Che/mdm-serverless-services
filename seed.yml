@@ -30,4 +30,4 @@ before_deploy:
 
 after_deploy:
   - echo "Run Functional tests"
-  - mvn -X -f functionaltests/WebdriverTest/pom.xml clean test -DtestFile=testng.xml
+  - mvn -f functionaltests/WebdriverTest/pom.xml clean test -DtestFile=functionaltests/WebdriverTest/testng.xml
