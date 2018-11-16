@@ -26,16 +26,16 @@ public class FunctionalTests {
         driver = new ChromeDriver(chromeOptions);
          
         String currentUsersWorkingDir = System.getProperty("user.dir");
-    	
+
     	System.setProperty("webdriver.chrome.driver",currentUsersWorkingDir+"/chromedriver");
-    	
+
     }
-    
+
 	@AfterTest
 	public void afterTest() {
-		driver.quit();			
+		driver.quit();
 	}
-    
+
     @Test(priority=1)
     public void ValidateSMDMRegistration() {
 
@@ -45,28 +45,30 @@ public class FunctionalTests {
         String actualTitle = driver.getTitle();
 
         SoftAssert softAssertion= new SoftAssert();
-        
+
         //Validate title
         softAssertion.assertEquals(actualTitle, expectedTitle);
         //Validate redirection to Okta page
         driver.findElement(By.linkText("Register")).click();
-  
+
+        String expectedOktaTitle = "login.okta.com";
+
         //ThoughtWorks UD - Sign In
         String actualOktaTitle = driver.getTitle();
 
         softAssertion.assertEquals(actualOktaTitle, actualOktaTitle);
-        
+
         WebElement userName =  ((ChromeDriver) driver).findElement(By.id("okta-signin-username"));
         WebElement password =  ((ChromeDriver) driver).findElement(By.id("okta-signin-password"));
 
         String usernameOkta = System.getenv("okta_username");
         String passwordOkta = System.getenv("okta_password");
-        
+
         userName.sendKeys(usernameOkta);
         password.sendKeys(passwordOkta);
         password.submit();
 
-        //Validate the landing page : should be the ack page 	
+        //Validate the landing page : should be the ack page
         //Assert.assertEquals(driver.getCurrentUrl(), "https://api.mdmdev.thoughtworks.net/rolzog/register?live=1&serial=C02L70VFF5YW" );
         //Validate message on the landing page
         String successMessage = "Please reboot to complete the enrolment process.";
@@ -74,13 +76,13 @@ public class FunctionalTests {
         driver.manage().timeouts().implicitlyWait(10000, TimeUnit.SECONDS);
         Assert.assertTrue(bodyText.contains(successMessage));
 
-     }
-    
+            }
+
     @Test(enabled = false)
     public void ValidateAssetStatusinServiceNow() {
     	 // Validate the status of the resource in ServiceNow:-
         String serviceNowUrl = "https://thoughtworksdev.service-now.com/navpage.do";
-       
+
         driver.get(serviceNowUrl);
         WebElement userNameSN =  ((ChromeDriver) driver).findElement(By.id("user_name"));
         WebElement passwordSN =  ((ChromeDriver) driver).findElement(By.id("user_password"));
@@ -98,7 +100,6 @@ public class FunctionalTests {
         String xpathImpersonate = "*[@class='dropdown-menu’]//*[text()=‘Impersonate User’]";
         ((ChromeDriver) driver).findElementByXPath(xpathImpersonate).click();
         driver.manage().timeouts().implicitlyWait(10000, TimeUnit.SECONDS);
-       
+
     }
 }
-
