@@ -3,20 +3,17 @@ before_compile:
 
 
 before_build:
+  - apt-key adv --fetch-keys https://dl-ssl.google.com/linux/linux_signing_key.pub
+  - sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
   - apt-get update
   - apt-get install xmlsec1 -y -q
   - apt-get install default-jdk -y -q
   - apt-get install maven -y -q
   - echo "Run unit tests"
-  - serverless create_domain
   - echo "installing chrome"
-  - apt-get install wget -y -q
-  - apt-get update
-  - apt-get install apt-transport-https
-  - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-  - sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-  - apt-get update
+  - apt-get install apt-transport-https -y -q
   - apt-get install google-chrome-stable -y -q
+  - serverless create_domain
 
 before_deploy:
   - echo "download pip dependencies to support vendored way of including pip"
@@ -24,5 +21,3 @@ before_deploy:
 
 after_deploy:
   - echo "Run Functional tests"
-  - mvn -e test -f functionaltests/WebdriverTest/pom.xml  -Dsurefire.suiteXmlFiles=testng.xml -DoutputDirectory=functionaltests/WebdriverTest/output.xml
-  - cat functionaltests/Webdrivertest/ouptut.xml
