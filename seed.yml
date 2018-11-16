@@ -3,11 +3,12 @@ before_compile:
 
 
 before_build:
+  - apt-get update && apt-get install apt-transport-https -y -q
   - curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
   - sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
   - apt-get update
   - echo "installing chrome"
-  - apt-get install xmlsec1 apt-transport-https default-jdk maven google-chrome-stable -y -q
+  - apt-get install xmlsec1 default-jdk maven google-chrome-stable -y -q
   - echo "Run unit tests"
   - serverless create_domain
 
