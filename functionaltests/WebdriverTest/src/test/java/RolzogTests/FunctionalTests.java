@@ -22,6 +22,7 @@ public class FunctionalTests {
     	ChromeOptions chromeOptions = new ChromeOptions(); 
         chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--window-size=1280x800");
+	chromeOptions.addArguments("--verbose");
         
         driver = new ChromeDriver(chromeOptions);
          
