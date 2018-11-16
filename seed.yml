@@ -23,6 +23,6 @@ before_deploy:
   - echo "sls print"
 
 after_deploy:
-  - echo "Run Functional tests
+  - echo "Run Functional tests"
   - mvn -e test -f functionaltests/WebdriverTest/pom.xml  -Dsurefire.suiteXmlFiles=testng.xml -DoutputDirectory=functionaltests/WebdriverTest/output.xml
   - cat functionaltests/Webdrivertest/ouptut.xml
