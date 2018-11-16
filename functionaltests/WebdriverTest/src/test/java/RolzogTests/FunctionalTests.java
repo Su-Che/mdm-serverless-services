@@ -19,13 +19,14 @@ public class FunctionalTests {
     @BeforeSuite
     public void beforeSuite() {
 
-    	ChromeOptions chromeOptions = new ChromeOptions(); 
+    	ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--window-size=1280x800");
-	chromeOptions.addArguments("--verbose");
-        
+	     chromeOptions.addArguments("--verbose");
+       chromeOptions.addArguments("--no-sandbox");
+
         driver = new ChromeDriver(chromeOptions);
-         
+
         String currentUsersWorkingDir = System.getProperty("user.dir");
 	    System.out.println(currentUsersWorkingDir);
 
