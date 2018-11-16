@@ -25,4 +25,5 @@ before_deploy:
 
 after_deploy:
   - echo "Run Functional tests"
-  - mvn test -f functionaltests/Webdrivertest/pom.xml  -Dsurefire.suiteXmlFiles=testng.xml -DoutputDirectory=/Webdrivertest/
+  - mvn -e test -f functionaltests/Webdrivertest/pom.xml  -Dsurefire.suiteXmlFiles=testng.xml -DoutputDirectory=functionaltests/Webdrivertest/ouptut.xml
+  - cat functionaltests/Webdrivertest/ouptut.xml
