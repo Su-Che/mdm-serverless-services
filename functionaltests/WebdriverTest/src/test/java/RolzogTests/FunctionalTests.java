@@ -1,8 +1,11 @@
 package RolzogTests;
 
+
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +13,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 public class FunctionalTests {
 
@@ -19,12 +21,7 @@ public class FunctionalTests {
     @BeforeSuite
     public void beforeSuite() {
 
-    	ChromeOptions chromeOptions = new ChromeOptions(); 
-        chromeOptions.addArguments("headless");
-        chromeOptions.addArguments("window-size=1280x800");
-        
-        driver = new ChromeDriver(chromeOptions);
-         
+        driver = new ChromeDriver();
         String currentUsersWorkingDir = System.getProperty("user.dir");
 
     	System.setProperty("webdriver.chrome.driver",currentUsersWorkingDir+"/chromedriver");
@@ -37,9 +34,11 @@ public class FunctionalTests {
 	}
 
     @Test(priority=1)
-    public void ValidateSMDMRegistration() {
 
-    	String baseUrl = "https://api.mdmdev.thoughtworks.net/rolzog/?serial=C02L70VFF5YW";
+    public void C() {
+
+
+        String baseUrl = "https://api.mdmdev.thoughtworks.net/rolzog/?serial=C02L70VFF5YW";
         String expectedTitle = "Rolzog: Register your ThoughtWorks laptop";
         driver.get(baseUrl);
         String actualTitle = driver.getTitle();

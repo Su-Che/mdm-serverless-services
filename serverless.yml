@@ -47,7 +47,7 @@ provider:
        Resource:
           - "arn:aws:apigateway:eu-west-1::/apikeys"
   memorySize: 1024 # optional, in MB, default is 1024
-  timeout: 10
+  timeout: 30
   apiKeys:
     - move-device-api-key-${self:provider.stage}
     - post-to-servicenow-api-key-${self:provider.stage}

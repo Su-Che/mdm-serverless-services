@@ -33,6 +33,8 @@
   }
   .hifi-icon {
     margin-bottom:30px;
+    width: 256px;
+
   }
 
   .register-your-laptop {
@@ -70,4 +72,8 @@
   }
   .mail{
     padding-left: 10px;
+  }
+
+  #rolzog-bk{
+    overflow: hidden;
   }
