@@ -24,7 +24,7 @@ public class FunctionalTests {
         driver = new ChromeDriver();
         String currentUsersWorkingDir = System.getProperty("user.dir");
 
-    	System.setProperty("webdriver.chrome.driver",currentUsersWorkingDir+"/functionaltests/WebdriverTest/chromedriver");
+    	System.setProperty("webdriver.chrome.driver",currentUsersWorkingDir+"/chromedriver");
 
     }
 
