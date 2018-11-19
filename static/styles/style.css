@@ -42,13 +42,14 @@
     font-weight: 800;
     line-height: 56px;
     color: #702269;
-    margin-bottom: var(--app-spacer);
+    margin-bottom: 10px;
     text-align: center;
   }
   .description {
     font-size: 16px;
     margin-bottom: var(--app-spacer);
     text-align: center;
+    font-weight: 300;
   }
   .btn {
     background-color: #007bff;
@@ -65,6 +66,7 @@
   .sub-para {
     display: flex;
     align-items: center;
+    font-size: 16px;
   }
   .sub-para img{
     height: 24px;
